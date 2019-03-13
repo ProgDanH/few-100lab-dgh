@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html lang="en" charset="UTF-8">
 
 <head>
-  <meta charset="UTF-8">
   <title>Webpack Showcase</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-
 <body>
   <div id="tip-calc">
     <h1>Tip Calculator</h1>
@@ -14,25 +11,23 @@
       <div class="input-group-prepend">
         <span class="input-group-text">$</span>
       </div>
-      <input type="text" class="form-control" onkeyup="filterAmt(this)" id="billAmt">
+      <input type="text"  id="billAmt" class="form-control" >
     </div>
     <div class="input-group mb-3">
       <div class="input-group-prepend" id="button-addon3">
-        <button class="btn btn-outline-secondary" type="button" onclick="calcTip(10)">10%</button>
-        <button class="btn btn-outline-secondary" type="button" onclick="calcTip(15)">15%</button>
-        <button class="btn btn-outline-secondary rounded-right" type="button" onclick="calcTip(20)">20%</button>
-        <div id="tipSelect"class="panel panel-default panel-body">Select a Tip Amount to Calculate
-          <!-- You are tipping PUT THE AMOUNT HERE -->
-        </div>
+        <button class="btn btn-outline-secondary" id="btn10" type="button" value=".10" >10%</button>
+        <button class="btn btn-outline-secondary" id="btn15" type="button" value=".15">15%</button>
+        <button class="btn btn-outline-secondary rounded-right" id="btn20" type="button" value=".20">20%</button>
       </div>
     </div>
+    <div id="tipSelect" class="panel panel-default panel-body">Select a Tip Amount to Calculate
+    </div>
     <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action">Bill Amount:</a>
-      <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Tip Percentage:</a>
-      <a href="#" class="list-group-item list-group-item-action">Amount of Tip:</a>
-      <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">Total to be Paid:</a>
+      <a id="billWoTip" class="list-group-item list-group-item-action">Bill Amount:</a>
+      <a id="tipPctAmt" class="list-group-item list-group-item-action list-group-item-secondary">Tip Percentage:</a>
+      <a id="tipAmount" class="list-group-item list-group-item-action">Amount of Tip:</a>
+      <a id="totalAmt" class="list-group-item list-group-item-action list-group-item-secondary">Total to be Paid:</a>
     </div>
   </div>
-</body>
-
+  </body>
 </html>
