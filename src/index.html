@@ -4,6 +4,7 @@
   <title>Webpack Showcase</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
 <body>
   <div id="tip-calc">
     <h1>Tip Calculator</h1>
@@ -11,13 +12,17 @@
       <div class="input-group-prepend">
         <span class="input-group-text">$</span>
       </div>
-      <input type="text"  id="billAmt" class="form-control" >
+      <input type="text" id="billAmt" class="form-control">
     </div>
+
+
     <div class="input-group mb-3">
-      <div class="input-group-prepend" id="button-addon3">
-        <button class="btn btn-outline-secondary" id="btn10" type="button" value=".10" >10%</button>
-        <button class="btn btn-outline-secondary" id="btn15" type="button" value=".15">15%</button>
-        <button class="btn btn-outline-secondary rounded-right" id="btn20" type="button" value=".20">20%</button>
+      <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary rounded-left" id="btn10" type="button" value=".10">10%</button>
+          <button class="btn btn-outline-secondary" id="btn15" type="button" value=".15">15%</button>
+          <button class="btn btn-outline-secondary rounded-right" id="btn20" type="button" value=".20">20%</button>
+          &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+          <button class="btn btn-outline-danger rounded" id="btnClr" type="button">Reset</button>
       </div>
     </div>
     <div id="tipSelect" class="panel panel-default panel-body">Select a Tip Amount to Calculate
@@ -29,5 +34,6 @@
       <a id="totalAmt" class="list-group-item list-group-item-action list-group-item-secondary">Total to be Paid:</a>
     </div>
   </div>
-  </body>
+</body>
+
 </html>

@@ -1,6 +1,7 @@
 import './styles.css';
-billAmt.onkeyup = handle;
+billAmt.onkeydown = billAmt.onkeyup = handle;
 btn10.onclick = btn15.onclick = btn20.onclick = calcTip;
+btnClr.onclick = resetPg;
 
 let numLastLen = 0;
 
@@ -14,16 +15,6 @@ window.onload = function () {
 };
 
 function handle(e) {
-  let text = e.type +
-    ' key=' + e.key +
-    ' key code=' + e.keyCode +
-    (e.shiftKey ? ' shiftKey' : '') +
-    (e.ctrlKey ? ' ctrlKey' : '') +
-    (e.altKey ? ' altKey' : '') +
-    (e.metaKey ? ' metaKey' : '') +
-    (e.repeat ? ' (repeat)' : '') +
-    "\n";
-  console.log(text);
   if ((e.keyCode >= 0x30 && e.keyCode <= 0x39) || e.key == ".") {
     insertAmount(e);
   }
@@ -60,12 +51,17 @@ function calcTip(e) {
 }, 500); 
  */
 function insertAmount(e, blnInsert = true) {
+  if (e.keyCode == 13 && billAmt.value.length > 0) {
+    setNewValues(false, " $" + parseFloat(billAmt.value).toFixed(2));
+    return;
+  }
   let prdIdx = billAmt.value.indexOf(".");
+  console.log("Inserting was "+ blnInsert + " and  decimal = "+ prdIdx);
   if (prdIdx != -1) {
     // Found  .
     if (blnInsert) {
       if (billAmt.value.length == prdIdx + 3) {
-        setNewValues(false, " $" + billAmt.value);
+        setNewValues(false, " $" + parseFloat(billAmt.value).toFixed(2));
         return;
       }
       if (billAmt.value.length > prdIdx + 3) {
@@ -96,4 +92,14 @@ function placeNewText(strEleName, strNewTxt) {
   let col_Idx = ele.innerText.indexOf(":");
   let newStrValue = ele.innerText.slice(0, col_Idx + 1) + strNewTxt;
   ele.innerText = newStrValue;
+}
+function resetPg() {
+  setNewValues(true, "");
+  tipSelect.innerText = "Select a Tip Amount to Calculate";
+  placeNewText("tipPctAmt", "");
+  placeNewText("tipAmount", "");
+  placeNewText("totalAmt", "");
+  billAmt.value = "";
+  billAmt.focus();
+  numLastLen = 0;
 }
