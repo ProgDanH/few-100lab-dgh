@@ -50,8 +50,8 @@ function calcTip(e) {
 
   tipSelect.innerText = "You are tipping " + this.value * 100 + "%";
   placeNewText("tipPctAmt", this.value * 100 + "%");
-  placeNewText("tipAmount", " $" + numTipAmt);
-  placeNewText("totalAmt", " $" + numTotAmt);
+  placeNewText("tipAmount", " $" + numTipAmt.toFixed(2));
+  placeNewText("totalAmt", " $" + numTotAmt.toFixed(2));
   billAmt.focus();
 }
 /* let timerId = setTimeout(function tick() {
@@ -95,5 +95,5 @@ function placeNewText(strEleName, strNewTxt) {
   var ele = document.getElementById(strEleName);
   let col_Idx = ele.innerText.indexOf(":");
   let newStrValue = ele.innerText.slice(0, col_Idx + 1) + strNewTxt;
-  ele.innerText = newStrValue.tofixed(2);
+  ele.innerText = newStrValue;
 }
